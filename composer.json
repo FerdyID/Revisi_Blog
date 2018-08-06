@@ -1,14 +1,19 @@
 {
     "name": "laravel/laravel",
     "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "license": "MIT",
     "type": "project",
     "require": {
         "php": "^7.1.3",
+        "barryvdh/laravel-ide-helper": "^2.4",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.6.*",
-        "laravel/tinker": "^1.0"
+        "laravel/tinker": "^1.0",
+        "terrazine/laravel-ide-helper": "v2.0.0"
     },
     "require-dev": {
         "filp/whoops": "^2.0",
@@ -33,8 +38,7 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": [
-            ]
+            "dont-discover": []
         }
     },
     "scripts": {
@@ -46,7 +50,11 @@
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover"
+            "@php artisan package:discover",
+            "php artisan terrazine:composer-events:post-autoload-dump || true"
+        ],
+        "pre-autoload-dump": [
+            "php artisan terrazine:composer-events:pre-autoload-dump || true"
         ]
     },
     "config": {
