@@ -20,13 +20,13 @@ composer update
 copy .env.example .env
 ```
 
-**4. Generate app key **
+**4. Generate app key**
 
 ```sh
 php artisan key:generate
 ```
 
-**5. Setup database config `.env` **
+**5. Setup database config `.env`**
 
 ```sh
 ...
